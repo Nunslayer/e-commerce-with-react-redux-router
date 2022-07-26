@@ -1,0 +1,21 @@
+.user--profile{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap:0.5em;
+}
+.user--profile__data{
+    display: flex;
+    flex-direction: column;
+}
+.user--profile__data>span{
+    font-size: 12px;
+    text-transform: capitalize;
+}
+button{
+    /* height: 30px;
+    padding: 0 0.5em; */
+    border: 0;
+    /* background-color: black;
+    color: white; */
+}

@@ -1,0 +1,43 @@
+.main--lobi{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.main--lobi>img{
+    display: block;
+    width: 100%;
+    height: calc(100vh - 36px);
+}
+.mark--container{
+    position: absolute;
+    right: 5%;
+    /* top: 40%; */
+}
+.mark--tittle{
+    font-size: 11.5vw;
+    font-weight: 500;
+    margin: 0;
+    line-height: 0.8;
+    border-bottom: 1px black solid;
+}
+.mark--tittle>span{
+    font-size: 4vw;
+    font-weight: 500;
+}
+.mark--description{
+    font-size: 6vw;
+    font-weight: lighter;
+    line-height: 1;
+    vertical-align: top;
+    margin: 0;
+}
+@media screen and (min-width: 600px) {
+    .mark--tittle{
+        font-size: 10vw;
+    }
+    .mark--description{
+        font-size: 4.5vw; 
+    }
+}
