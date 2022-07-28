@@ -8,7 +8,7 @@
 .main--lobi>img{
     display: block;
     width: 100%;
-    height: calc(100vh - 36px);
+    height: calc(100vh - 37px);
 }
 .mark--container{
     position: absolute;

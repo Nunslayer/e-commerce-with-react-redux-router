@@ -4,7 +4,7 @@ import axios from 'axios'
 export const userLogSlice = createSlice({
     name: 'userLog',
     initialState: {
-        isLogin:false,
+        isLogin:null,
         token:null
     },
     reducers: {
@@ -12,24 +12,30 @@ export const userLogSlice = createSlice({
             return {
                 isLogin: true,
                 token:action.payload}
-            // return action.payload
         },
-        setUserUnlog:(state,action)=>{
+        setUserUnlog:(state, action)=>{
             return{
                 isLogin: false,
+                token: null}
+        },
+        setInitLogValue:(state, action)=>{
+            return{
+                isLogin: null,
                 token: null}
         }
     }
 })
 
-export const {getUserLog, setUserUnlog} = userLogSlice.actions
+export const {getUserLog, setUserUnlog, setInitLogValue} = userLogSlice.actions
 export default userLogSlice.reducer
-export const loginUser=(formLogin)=>async(dispatch, getState)=>{
-    // const getConfig = () => ({
-    //     headers: { Authorization: `Bearer ${token}` }
-    //   });
+export const loginUser=(formLogin)=>(dispatch, getState)=>{
     const products = getState()
     console.log(products)
-    const res = await axios.post('https://ecommerce-exercise-backend.herokuapp.com/login/', formLogin)
-    return (dispatch(getUserLog(res.data.access)))
+    axios.post('https://ecommerce-exercise-backend.herokuapp.com/login/', formLogin)
+        .then(res=>{
+            dispatch(getUserLog(res.data.access))
+        })
+        .catch(error=>{
+            dispatch(setUserUnlog())
+        })  
 }

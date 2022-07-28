@@ -4,12 +4,7 @@ const Login =()=>{
     const navigate = useNavigate()
     return(
         <section className="main">
-            <LoginForm>
-
-            </LoginForm> 
-            <button onClick={()=>navigate('/register')}>
-                go register
-            </button> 
+            <LoginForm />
         </section>
         
     )

@@ -1,0 +1,40 @@
+.container--login{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 37px);
+}
+.login{
+    display: flex;
+    flex-flow: column nowrap;
+    width: min-content;
+    align-items: center;
+    justify-content: center;
+    width: min-content;
+    padding: 1em;
+    border: 1px black solid;
+}
+.login label{
+    font-weight: 700;
+    align-self: flex-start;
+}
+
+.login input{
+    height: 1.4rem;
+    margin-bottom: 0.5rem;
+    outline: none;
+}
+
+.login button{
+    align-self: center;
+    background-color: black;
+    color: white;
+    height: 2rem;
+    padding: 0 1rem;
+}
+
+.login button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}

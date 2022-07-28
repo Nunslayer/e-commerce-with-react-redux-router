@@ -23,23 +23,21 @@ const UserProfile =()=>{
     return(
         <div className='user--profile'>
         {userData.id !== null?<>
-            <div className="user--profile__data">
+            
                 <div>
                     {userIcon}
-                    <button 
+                </div>
+                <button 
                         onClick={()=>{
                             navigate('/cart')
                         }}
                     >
-                {cartIcon}
-            </button>
-                </div>
-                
-                <span>
+                        {cartIcon}
+                    </button>
+                {/* <span>
                     {userData.first_name}
-                </span>
-            </div>
-           
+                </span> */}
+            
             <Link to='/' onClick={()=>
                     dispatch(setUserUnlog())
                 }

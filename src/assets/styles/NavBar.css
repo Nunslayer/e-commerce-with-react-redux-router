@@ -6,9 +6,10 @@
     padding-right: 5vw;
     padding-left: 2vw;
     height: 36px;
-    border-bottom: 1px black solid;
+    /* border-bottom: 1px black solid; */
 }
 a{
     text-decoration: none;
     color: black;
+    font-weight: 700;
 }

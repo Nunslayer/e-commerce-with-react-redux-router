@@ -1,8 +1,12 @@
+import '../assets/styles/ProductDetails.css'
 import {useParams, useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect, useState } from 'react'
 import { getUploadCart } from '../store/slices/cart.slice'
-import UserProfile from '../components/UserProfile'
+import Products from '../components/Products'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
+
 const ProductDetails = ()=>{
     const [counter, setCounter] = useState(1)
     const [product, setProduct]= useState({})
@@ -12,6 +16,8 @@ const ProductDetails = ()=>{
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {id} = useParams()
+    const moreIcon = <FontAwesomeIcon icon={faPlus} />
+    const lessIcon = <FontAwesomeIcon icon={faMinus} />
     useEffect(()=>{
         const cartFilter = cart.filter(item=> item.product.id==id)
         const productFilter=products.filter(element=> element.id==id)
@@ -22,42 +28,51 @@ const ProductDetails = ()=>{
         setCategory(categoryFilter)
         if(cartFilter.length ===1){
             setCounter(Number(cartFilter[0].quantity))
+        }else{
+            setCounter(1)
         }
     },[id])
     return (
         <>
-        <UserProfile />
-        {product.id && <div className="card--product__details">
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <img src={product.images[0].url} style={{width: '300px', height:'300px',}} />
-            <div className="quantity-to-cart">
-                <button
-                    onClick={()=>{
-                        setCounter(counter+1)
-                    }}
-                >
-                    ➕
-                </button>
-                {counter}
-                <button
-                    disabled={counter===1}
-                    onClick={()=>{
-                        setCounter(counter-1)
-                    }}
-                >
-                    ➖
-                </button>
-            </div>
-            <button onClick={()=>{
-                    dispatch(getUploadCart(product.id,counter))
-                    navigate('/cart')
-                }}
-            >
-                add to cart
-            </button>
-        </div>}
-        {category && category.map((productCategory)=>{
+        {
+            product.id && 
+                <div className="card--product__details">
+                    <img src={product.images[0].url}  />
+                    <div className="product__details--description">
+                        <h2>{product.name}</h2>
+                        <p>{product.description}</p>
+                        <div className="quantity-to-cart">
+                            <button
+                                onClick={()=>{
+                                    setCounter(counter+1)
+                                }}
+                            >
+                                {moreIcon}
+                            </button>
+                            <span> 
+                                {counter} 
+                            </span>
+                            <button
+                                disabled={counter===1}
+                                onClick={()=>{
+                                    setCounter(counter-1)
+                                }}
+                            >
+                                {lessIcon}
+                            </button>
+                        </div>
+                        <button onClick={()=>{
+                                dispatch(getUploadCart(product.id,counter))
+                                // navigate('/cart')
+                            }}
+                        >
+                            Add to cart
+                        </button>
+                    </div>
+                </div>
+        }
+        {category && <Products products={category}/>}
+        {/* {category && category.map((productCategory)=>{
             if(productCategory.id ==id){
                 return
             }else{
@@ -78,7 +93,7 @@ const ProductDetails = ()=>{
                     </div>
                 )
             }
-        })}
+        })} */}
         </>
     )
 }

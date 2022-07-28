@@ -6,7 +6,8 @@
 }
 .user--profile__data{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 0.5em;
 }
 .user--profile__data>span{
     font-size: 12px;
