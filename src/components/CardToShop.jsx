@@ -7,6 +7,7 @@ const CardToShop =({product})=>{
         <div 
             className="card--product"
             onClick={()=>{
+                window.scrollTo(0,0)
                 navigate(`/shop/${product.id}`)
             }}
         >

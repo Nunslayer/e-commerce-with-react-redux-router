@@ -6,6 +6,7 @@ import {useForm} from 'react-hook-form'
 import { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUserCheck, faWarning} from '@fortawesome/free-solid-svg-icons'
+// import {setLoading} from '../store/slices/loading.slice'
 const LoginForm =()=>{
     const navigate = useNavigate()
     const user = useSelector((state)=>state.userLog)
@@ -22,12 +23,12 @@ const LoginForm =()=>{
         if(user.isLogin){
             setTimeout(()=>{
                 navigate('/shop')
-            }, 5000)     
+            }, 3000)     
         }
         if(user.isLogin===false){
             setTimeout(()=>{
-                setInitLogValue()
-            }, 2000)     
+                dispatch(setInitLogValue())
+            }, 4000)     
         }
         
     },[user])

@@ -18,6 +18,7 @@ import ProductDetails from './Routes/ProductDetails'
 import Register from './Routes/Register'
 import Lobi from './Routes/Lobi'
 import NavBar from './components/NavBar'
+import Spinner from './components/Spinner'
 function App() {
   // const [userRegister, setUserRegister] = useState(false)
   // const [count, setCount] = useState(0)
@@ -25,7 +26,7 @@ function App() {
   // const products = useSelector((state)=>state.products)
   // const token = useSelector((state)=> state.token)
   // const {handleSubmit, reset, register} = useForm()
-  const dispatch = useDispatch()
+  const loading = useSelector((state)=> state.loading)
   
   // const tokenDispatch=()=>{
 
@@ -63,6 +64,7 @@ function App() {
         <button>change</button>
       </form> */}
       <HashRouter>
+        { loading && <Spinner/>}
         <NavBar/>
         <Routes>
           <Route path='/lobi' element={<Lobi/>}/>

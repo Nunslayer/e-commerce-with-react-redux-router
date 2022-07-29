@@ -1,7 +1,9 @@
 import '../assets/styles/Lobi.css'
-import {useNavigate} from 'react-router-dom'
+import {useLocation, useNavigate} from 'react-router-dom'
 import bgJewelry from '../assets/images/beautiful-woman-with-artistic-make-up.jpg'
 const Lobi =()=>{
+  const location =useLocation()
+  console.log(location)
   return(
     <>
     <section className="main--lobi">

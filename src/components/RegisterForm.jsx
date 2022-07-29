@@ -6,8 +6,10 @@ import axios from 'axios'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faClose, faCheck, faCircleExclamation} from '@fortawesome/free-solid-svg-icons'
+import {setLoading} from '../store/slices/loading.slice'
 const RegisterForm = () => {
   const [isRegister, setIsRegister] = useState(null)
+  const dispatch= useDispatch()
   const {
     handleSubmit, 
     getFieldState, 
@@ -29,6 +31,7 @@ const RegisterForm = () => {
   const warningIcon = <FontAwesomeIcon icon={faCircleExclamation} className='warningIcon'/>
   const navigate = useNavigate()
   const submit =(data)=>{
+    dispatch(setLoading(true))
     const registerUser= {
       email: data.emailRegister,
       first_name: data.first_name,
@@ -46,6 +49,7 @@ const RegisterForm = () => {
         }
       })
       .catch(error=> setIsRegister(false))
+      .finally(dispatch(setLoading(false)))
   }
   
   return(

@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import {setLoading} from './loading.slice'
 import { initCart } from './cart.slice'
 import axios from 'axios'
 
@@ -25,6 +26,7 @@ export const {getUserDates} = userEntitySlice.actions
 export default userEntitySlice.reducer
 
 export const initialUserDates=()=>async(dispatch, getState)=>{
+    dispatch(setLoading(true))
     const {userLog} = getState()
     const getConfig = () => ({
         headers: { Authorization: `Bearer ${userLog.token}` }
@@ -32,6 +34,9 @@ export const initialUserDates=()=>async(dispatch, getState)=>{
     if(userLog.isLogin){
         const res = await axios.get('https://ecommerce-exercise-backend.herokuapp.com/users/myself/',getConfig())
         dispatch(initCart(res.data.cart))
-        return(dispatch(getUserDates(res.data)))
+        dispatch(getUserDates(res.data))
+        return (dispatch(setLoading(false)))
     }
+    dispatch(setLoading(false))
+    return
 }

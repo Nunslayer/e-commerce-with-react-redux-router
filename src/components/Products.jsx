@@ -8,9 +8,9 @@ import CardToShop from './CardToShop'
 const Products = ({products}) => {
     // const [products, setProducts] = useState([])
     // const products = useSelector((state)=>state.products)
-    const userLog = useSelector((state)=> state.userLog)
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+    // const userLog = useSelector((state)=> state.userLog)
+    // const dispatch = useDispatch()
+    // const navigate = useNavigate()
     // useEffect(()=>{
     //     if(userLog.isLogin&&products.length===0){
     //         dispatch(getProducts())

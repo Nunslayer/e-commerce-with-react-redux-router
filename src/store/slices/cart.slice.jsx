@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import {setLoading} from './loading.slice'
 import axios from 'axios'
 export const cartSlice = createSlice({
     name: 'cart',
@@ -34,6 +35,7 @@ export const {uploadCart, initCart, cleanCart, addItemToCart, removeItemFromCart
 export default cartSlice.reducer
 
 export const getUploadCart=( id, quantity )=>async(dispatch, getState)=>{
+    dispatch(setLoading(true))
     const {userLog, cart} = getState()
     const itemCart = cart.filter(item=>item.product.id == id)
     console.log(itemCart)
@@ -52,20 +54,26 @@ export const getUploadCart=( id, quantity )=>async(dispatch, getState)=>{
         console.log(setQuantity)
         const res = await axios.put(`https://ecommerce-exercise-backend.herokuapp.com/cart/${itemCart[0].id}/change_quantity/`, setQuantity, getConfig())
         console.log(res)
+        dispatch(setLoading(false))
         return(dispatch(uploadCart(res.data)))
     }
     const res = await axios.post('https://ecommerce-exercise-backend.herokuapp.com/products/add_to_cart/', addCart, getConfig())
     console.log(res)
+    dispatch(setLoading(false))
     return(dispatch(addItemToCart(res.data)))
 }
 
 export const setRemoveItem=(id)=>async(dispatch, getState)=>{
+    dispatch(setLoading(true))
     const {userLog} = getState()
     const getConfig = () => ({
         headers: { Authorization: `Bearer ${userLog.token}` }
     });
     const res= await axios.delete(`https://ecommerce-exercise-backend.herokuapp.com/cart/${id}/remove_item/`, getConfig())
     if(res.status===204){
+        dispatch(setLoading(false))
         return(dispatch(removeItemFromCart(id)))
     }
+    dispatch(setLoading(false))
+    return
 }

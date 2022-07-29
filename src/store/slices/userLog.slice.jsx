@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import {setLoading} from './loading.slice'
 import axios from 'axios'
 
 export const userLogSlice = createSlice({
@@ -28,14 +29,20 @@ export const userLogSlice = createSlice({
 
 export const {getUserLog, setUserUnlog, setInitLogValue} = userLogSlice.actions
 export default userLogSlice.reducer
-export const loginUser=(formLogin)=>(dispatch, getState)=>{
-    const products = getState()
-    console.log(products)
+export const loginUser=(formLogin)=>async(dispatch, getState)=>{
+    dispatch(setLoading(true))
     axios.post('https://ecommerce-exercise-backend.herokuapp.com/login/', formLogin)
-        .then(res=>{
+        .then(res=> {
             dispatch(getUserLog(res.data.access))
+            dispatch(setLoading(false))
         })
-        .catch(error=>{
+        .catch( error=>{
             dispatch(setUserUnlog())
-        })  
+            dispatch(setLoading(false))
+        })
+
+    
+    
+    
+   
 }

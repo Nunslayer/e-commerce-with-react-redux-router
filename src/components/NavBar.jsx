@@ -10,7 +10,7 @@ const NavBar = () => {
   return(
     <>
       <section className='header'>
-        <Link to='/lobi'>
+        <Link to='/shop'>
           {mainIcon}
         </Link>
         {

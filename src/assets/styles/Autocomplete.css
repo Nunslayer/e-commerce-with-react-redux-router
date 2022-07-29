@@ -1,0 +1,46 @@
+.autocomplete{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.input--autocomplete{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.input--autocomplete input{
+    width: 60%;
+    height: 40px;
+    outline: none;
+    min-width: 200px;
+    max-width: 400px ;
+    font-size: 16px;
+    text-indent: 1em;
+    border: 1px black solid;
+    line-height: 1;
+    padding: 0;
+}
+.input--autocomplete button{
+    height: 42px;
+    outline: none;
+    width: 60px;
+    border: 1px black solid;
+    color: white;
+    background-color: black;
+    font-size: 15px;
+}
+
+@media screen and (min-width: 600px) {
+    .input--autocomplete input{
+        width: 80%;
+    }
+}

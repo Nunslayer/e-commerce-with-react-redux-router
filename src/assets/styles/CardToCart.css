@@ -1,0 +1,91 @@
+.card--cart{
+    position: relative;
+    display: grid;
+    grid-template-areas: 
+    "c-tittle c-tittle c-tittle c-tittle"
+    "c-img c-img c-btn c-btn"
+    "c-img c-img c-btn c-btn"
+    ;
+    width: 300px;
+    height: 170px;
+    /* border-bottom: 1px rgb(82, 79, 79) solid; */
+}
+
+.card--cart img{
+    display: block;
+    grid-area: c-img;
+    width: 150px;
+    height: 150px;
+}
+.card--cart h3{
+    margin: 0;
+    grid-area: c-tittle;
+    height: 20px;
+    /* border-top: 1px rgb(82, 79, 79) solid; */
+}
+.card--cart__details{
+    grid-area: c-btn;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
+.btn--remove{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    font-size: 22px;
+    line-height: 1;
+}
+.card--cart__quantity{
+    display: flex;
+    flex-flow: column;
+}
+
+.card--cart__quantity p{
+    margin: 0;
+}
+
+.btn--modify{
+    width: 50%;
+    height: 26px;
+    background-color: black;
+    color: white;
+    align-self: center;
+}
+.card--cart__quantity div{
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    width: 48%;
+    height: 20px;
+    font-size: 20px;
+    border: 1px black solid;
+    line-height: 1;
+}
+.card--cart__quantity>div>button{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    line-height: 1;
+}
+.card--cart__unit--price p{
+    margin: 0;
+    font-size: 16px;
+}
+
+.price--card{
+    font-size: 19px;
+}
+
+.card--cart__total--price p{
+    margin: 0;
+    font-size: 16px;
+}
+
+.modify{
+    color: red;
+}
