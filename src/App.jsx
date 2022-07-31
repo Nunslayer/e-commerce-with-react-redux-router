@@ -67,13 +67,15 @@ function App() {
         { loading && <Spinner/>}
         <NavBar/>
         <Routes>
-          <Route path='/lobi' element={<Lobi/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
+          <Route path='/lobi' element={<Lobi/>}>
+            <Route path='login' element={<Login/>}/>
+            <Route path='register' element={<Register/>}/>
+          </Route>
           <Route element={<ProtectedRoutes/>}>
             <Route path='/' element={<Shop/>}/>
-            <Route path='/shop' element={<Shop/>}/>
-            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/shop' element={<Shop/>}>
+             <Route path='cart' element={<Cart/>}/> 
+            </Route>            
             <Route path='/shop/:id' element={<ProductDetails/>}/>
           </Route>
         </Routes>

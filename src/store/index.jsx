@@ -5,6 +5,7 @@ import tokenSlice from './slices/token.slice'
 import userEntitySlice from './slices/userEntity.slice'
 import cartSlice from './slices/cart.slice'
 import loadingSlice from './slices/loading.slice'
+import ordersSlice from './slices/orders.slice'
 export default configureStore({
     reducer:{
         userLog: userLogSlice,
@@ -12,6 +13,7 @@ export default configureStore({
         token: tokenSlice,
         userEntity: userEntitySlice,
         cart: cartSlice,
-        loading: loadingSlice
+        loading: loadingSlice,
+        orders: ordersSlice
     }
 })

@@ -33,6 +33,7 @@ export const loginUser=(formLogin)=>async(dispatch, getState)=>{
     dispatch(setLoading(true))
     axios.post('https://ecommerce-exercise-backend.herokuapp.com/login/', formLogin)
         .then(res=> {
+            console.log(res)
             dispatch(getUserLog(res.data.access))
             dispatch(setLoading(false))
         })

@@ -14,6 +14,7 @@
     width: min-content;
     padding: 1em;
     border: 1px black solid;
+    background-color: rgba(0, 0, 0, 0.288);
 }
 .login label{
     font-weight: 700;

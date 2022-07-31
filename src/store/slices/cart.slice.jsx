@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {setLoading} from './loading.slice'
+import {getUploadOrders} from './orders.slice'
 import axios from 'axios'
 export const cartSlice = createSlice({
     name: 'cart',
@@ -16,7 +17,7 @@ export const cartSlice = createSlice({
             })
             return newCart
         },
-        cleanCart:()=>{
+        cleanCart:(state, action)=>{
             return ([])
         },
         addItemToCart:(state, action)=>{
@@ -77,3 +78,45 @@ export const setRemoveItem=(id)=>async(dispatch, getState)=>{
     dispatch(setLoading(false))
     return
 }
+export const removeAllItemsCart=()=>(dispatch, getState)=>{
+    dispatch(setLoading(true))
+    const {userLog} = getState()
+    console.log(userLog)
+    const getConfig = () => ({
+        headers: { Authorization: `Bearer ${userLog.token}` }
+    });
+    axios.delete('https://ecommerce-exercise-backend.herokuapp.com/cart/empty_cart/', getConfig())
+        .then(res=> {
+            console.log(res)
+            dispatch(cleanCart())
+        })
+        .catch(error=> console.log(error))
+        .finally(dispatch(setLoading(false)))
+
+}
+//Se necesita incluir login para confirmar compras
+export const setBuyCartItems=(loginConfirm)=>(dispatch, getState)=>{
+    dispatch(setLoading(true))
+    const {userLog} = getState()
+    console.log(userLog)
+    const getConfig = () => ({
+        headers: { Authorization: `Bearer ${userLog.token}` }
+    });
+    console.log(loginConfirm)
+    axios.post('https://ecommerce-exercise-backend.herokuapp.com/cart/buy/', loginConfirm, getConfig())
+        .then(res=> {
+            console.log(res)
+            dispatch(cleanCart())
+            dispatch(getUploadOrders(res.data))
+        })
+        .catch(error=> console.log(error))
+        .finally(dispatch(setLoading(false)))
+       
+    // if(res.status===200){
+    //     dispatch(cleanCart())
+    //     dispatch(getUploadOrders(res.data))
+    //     return dispatch(setLoading(false))
+    // }
+    // return dispatch(setLoading(false))
+}
+

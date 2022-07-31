@@ -4,10 +4,11 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 37px);
+    
 }
 .register{
     width: min-content;
-    
+    background-color: rgba(0, 0, 0, 0.288);
     margin: 0 auto;
     display: flex;
     flex-flow: column nowrap;

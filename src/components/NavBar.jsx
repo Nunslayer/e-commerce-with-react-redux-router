@@ -10,18 +10,24 @@ const NavBar = () => {
   return(
     <>
       <section className='header'>
-        <Link to='/shop'>
-          {mainIcon}
+        <div>
+          <Link to='/shop'>
+            Shop
+          </Link>
+          {' | '}
+          <Link to='/lobi'>
+            Lobi
         </Link>
+        </div>
         {
           userLog.isLogin===true? 
             <UserProfile/>:
             <div>
-              <NavLink to='/login'>
+              <NavLink to='/lobi/login'>
                 Login
               </NavLink>
               <span> | </span>
-              <NavLink to='/register'>
+              <NavLink to='/lobi/register'>
                 Register
               </NavLink>
             </div>

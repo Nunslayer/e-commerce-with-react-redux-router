@@ -1,6 +1,9 @@
 .cart--section{
-    align-self: flex-end;
+    position: relative;
     height: calc(100vh - 36px);
+    width: 301px;
+    align-self: center;
+    justify-self: center;
 }
 .body--cart{
     padding-bottom: 50px;
@@ -13,6 +16,7 @@
     height: 45px;
     width: 300px;
     bottom: 0;
+    z-index: 10;
 }
 .footer--cart__btn{
     width: 100%;
@@ -32,4 +36,12 @@
     font-weight: 700;
     line-height: 1;
     background-color: white;
+}
+
+.empty--cart button{
+    padding: 0 0.5em;
+    width: max-content;
+    height: 25px;
+    background-color: black;
+    color: white;
 }

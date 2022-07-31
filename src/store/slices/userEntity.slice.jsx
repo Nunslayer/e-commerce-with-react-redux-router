@@ -1,6 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {setLoading} from './loading.slice'
 import { initCart } from './cart.slice'
+import {getUploadOrders} from './orders.slice'
 import axios from 'axios'
 
 export const userEntitySlice = createSlice({
@@ -34,6 +35,7 @@ export const initialUserDates=()=>async(dispatch, getState)=>{
     if(userLog.isLogin){
         const res = await axios.get('https://ecommerce-exercise-backend.herokuapp.com/users/myself/',getConfig())
         dispatch(initCart(res.data.cart))
+        dispatch(getUploadOrders(res.data.orders))
         dispatch(getUserDates(res.data))
         return (dispatch(setLoading(false)))
     }
