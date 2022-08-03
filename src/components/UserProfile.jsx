@@ -2,7 +2,7 @@ import '../assets/styles/UserProfile.css'
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { initialUserDates } from "../store/slices/userEntity.slice"
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { setUserUnlog } from "../store/slices/userLog.slice"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCheck, faCartShopping } from '@fortawesome/free-solid-svg-icons'
@@ -11,6 +11,7 @@ const UserProfile = () => {
   const userLog = useSelector((state) => state.userLog)
   const cart = useSelector((state) => state.cart)
   const dispatch = useDispatch()
+  const location = useLocation()
   const navigate = useNavigate()
   const userIcon = <FontAwesomeIcon icon={faUserCheck} />
   const cartIcon = <FontAwesomeIcon icon={faCartShopping} />
@@ -27,13 +28,14 @@ const UserProfile = () => {
           {userIcon}
         </Link>
         {' | '}
-        <Link to='/shop/cart'>
+        <Link to={location.pathname.includes('cart')?'/shop':'/shop/cart'}>
           {cartIcon}
         </Link>
         {' | '}
-        <Link to='/' onClick={() =>
+        <Link to='/' onClick={() =>{
           dispatch(setUserUnlog())
-        }
+          console.log(location)
+        }}
         >
           LogOut
         </Link>

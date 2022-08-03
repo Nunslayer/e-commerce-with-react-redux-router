@@ -22,7 +22,7 @@ const Cart =()=>{
   },[cart])
   console.log(cart)
   return (
-    <>
+   
     <section className='cart--section'>
       <div className='body--cart'>
         {cart && cart.map((carrito)=>{
@@ -45,6 +45,12 @@ const Cart =()=>{
             {}
           </LoginForm>
         </Modal>
+      }
+      {cart.length===0 && 
+        <article className='empty--cart'>
+          <h1>You Dont have products in your shopping cart</h1>
+          <button onClick={()=>navigate('/shop')}>Explore more</button>
+        </article>
       }
       <div className="footer--cart">
         <div className="footer--cart__btn">
@@ -72,15 +78,9 @@ const Cart =()=>{
           <p>Total: {getTotalPrice().toFixed(2)} $</p>
         </div>
       </div>
-      {cart.length===0 && 
-        <article className='empty--cart'>
-          <h1>You Dont have products in your shopping cart</h1>
-          <button onClick={()=>navigate('/shop')}>Explore more</button>
-        </article>
-      }
+      
     </section>
     
-    </>
   )
 }
 

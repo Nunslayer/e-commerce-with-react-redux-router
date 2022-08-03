@@ -1,0 +1,38 @@
+.card--store{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    border-top: 1px black solid;
+    
+}
+.card--store:last-child{
+    border-bottom: 1px black solid;
+}
+.card--store>div{
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.card--store>div>img{
+    width: 100px;
+    height: 100px;
+}
+
+.card--store>div>p{
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    margin: 0;
+    bottom: 0;
+    background-color:rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+.card--store>p{
+    margin: 0 ;
+    text-align: center;
+    
+}

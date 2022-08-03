@@ -1,5 +1,4 @@
 import '../assets/styles/Shop.css'
-import { faHourglass1 } from "@fortawesome/free-solid-svg-icons"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Outlet, useLocation } from "react-router-dom"
@@ -33,13 +32,13 @@ const Shop =()=>{
                     </div>
                 </article>
                 <article className="main--shop">
-                    <article className={location.pathname==='/shop'?'isOnlyShop':null}>
+                    <article className={location.pathname==='/shop'?'isOnlyShop prueba':'isCartActive prueba'}>
                         {products.length>0?<Products 
                             products={products}
                         />:<h1>Product not found... try again please</h1>}
                         {/* {products.length===0 && <h1>Product not found... try again please</h1>} */}
                     </article>
-                    <article>
+                    <article className='prueba--cart'>
                         <Outlet/>
                     </article>
             </article>

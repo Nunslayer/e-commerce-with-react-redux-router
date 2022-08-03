@@ -19,6 +19,7 @@ import Register from './Routes/Register'
 import Lobi from './Routes/Lobi'
 import NavBar from './components/NavBar'
 import Spinner from './components/Spinner'
+import User from './Routes/User'
 function App() {
   // const [userRegister, setUserRegister] = useState(false)
   // const [count, setCount] = useState(0)
@@ -58,13 +59,15 @@ function App() {
   //     .catch(error=>{console.error(error)})
   // }
   return (
+    <>
+    { loading && <Spinner/>}
     <div className="App">
       {/* <form onSubmit={submit}>
         <input type="text" value={value} onChange={e=> setValue(e.target.value)}/>
         <button>change</button>
       </form> */}
       <HashRouter>
-        { loading && <Spinner/>}
+        
         <NavBar/>
         <Routes>
           <Route path='/lobi' element={<Lobi/>}>
@@ -75,7 +78,8 @@ function App() {
             <Route path='/' element={<Shop/>}/>
             <Route path='/shop' element={<Shop/>}>
              <Route path='cart' element={<Cart/>}/> 
-            </Route>            
+            </Route>
+            <Route path='/user' element={<User/>}/>            
             <Route path='/shop/:id' element={<ProductDetails/>}/>
           </Route>
         </Routes>
@@ -86,6 +90,7 @@ function App() {
       <Products />
       <UserProfile/> */}
     </div>
+    </>
   )
 }
 

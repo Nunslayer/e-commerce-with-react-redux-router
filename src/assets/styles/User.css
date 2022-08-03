@@ -1,0 +1,22 @@
+body{
+    box-sizing: border-box;
+}
+.user--page{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user--page article{
+    height: calc(100vh - 36px);
+    overflow-y: scroll;
+}
+
+.user--page--data{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+}
