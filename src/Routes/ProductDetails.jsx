@@ -6,6 +6,7 @@ import { getUploadCart } from '../store/slices/cart.slice'
 import Products from '../components/Products'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
+import { Slider } from '../components/Slider'
 
 const ProductDetails = ()=>{
     const [counter, setCounter] = useState(1)
@@ -37,7 +38,14 @@ const ProductDetails = ()=>{
         {
             product.id && 
                 <div className="card--product__details">
-                    <img src={product.images[0].url}  />
+                    {/* <img src={product.images[0].url}  /> */}
+                    <Slider 
+                        controlls={true}
+                        images={product.images}
+                        widthImg='80%'
+                        heightImg='40vh'
+                        idProduct={product.id}
+                    />
                     <div className="product__details--description">
                         <h2>{product.name}</h2>
                         <p>{product.description}</p>

@@ -6,6 +6,12 @@
     height: calc(100vh - 37px);
     
 }
+.container--register>h4{
+    font-size: 22px;
+    margin: 0;
+    /* background-color: rgba(0, 0, 0, 0.288); */
+    font-weight: lighter;
+}
 .register{
     width: min-content;
     background-color: rgba(0, 0, 0, 0.288);
@@ -64,7 +70,7 @@
 }
 
 .register--state {
-    font-size: 2rem;
+    font-size: 1rem;
     height: 2.2rem;
     padding: 0 0.5em;
     margin: 0.4em;

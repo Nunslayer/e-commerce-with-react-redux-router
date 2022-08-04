@@ -44,7 +44,7 @@ const RegisterForm = () => {
         if(res.status===201){
           setIsRegister(true)
           setTimeout(()=>{
-            navigate('/login')
+            navigate('/lobi/login')
           }, 3000)
         }
       })
@@ -54,6 +54,7 @@ const RegisterForm = () => {
   
   return(
     <div className="container--register">
+      <h4>Register to init</h4>
       <form className='register' onSubmit={handleSubmit(submit)}>
           <label htmlFor='email'>
             Email:{

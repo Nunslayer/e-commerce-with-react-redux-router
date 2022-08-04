@@ -1,3 +1,4 @@
+import '../assets/styles/Login.css'
 import LoginForm from "../components/LoginForm"
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
@@ -21,12 +22,12 @@ const Login = () => {
     if (user.isLogin) {
       setTimeout(() => {
         navigate('/shop')
-      }, 3000)
+      }, 1500)
     }
     if (user.isLogin === false) {
       setTimeout(() => {
         dispatch(setInitLogValue())
-      }, 4000)
+      }, 2000)
     }
 
   }, [user])
@@ -34,7 +35,7 @@ const Login = () => {
     <section className="main">
       <LoginForm>
         {user.isLogin === true && <p className='register--state successful'>
-          Successful Login {checkIcon}
+          Redirecting {<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>}
         </p>}
         {user.isLogin === false && <p className='register--state errors-msg'>
           Invalid dates {errorIcon}

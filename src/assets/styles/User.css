@@ -12,11 +12,45 @@ body{
     height: calc(100vh - 36px);
     overflow-y: scroll;
 }
-
+.tab--orders{
+    position: relative;
+    height: calc(100vh - 36px);
+    overflow-y: none;
+}
+.body--orders{
+    height: calc(100vh - 76px);
+    overflow-y: scroll;
+}
 .user--page--data{
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
     text-transform: capitalize;
+}
+
+.tab--header{
+    /* position:absolute; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    font-weight: 700;
+}
+.tab--header p{
+    margin: 0;
+}
+.tab--header p:nth-child(1){
+    width: 100px;
+}
+
+.tab--header p:nth-child(2){
+    width: 65px;
+}
+
+.tab--header p:nth-child(3){
+    width: 50px;
+}
+
+.tab--header p:nth-child(4){
+    width: 48px;
 }

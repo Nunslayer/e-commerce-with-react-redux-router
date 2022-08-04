@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUserCheck, faWarning} from '@fortawesome/free-solid-svg-icons'
 import { setBuyCartItems } from '../store/slices/cart.slice'
-const LoginForm =({children})=>{
+const LoginForm =({children, tittle})=>{
   const navigate = useNavigate()
   const location = useLocation()
   const user = useSelector((state)=>state.userLog)
@@ -50,6 +50,7 @@ const LoginForm =({children})=>{
   console.log(state)
   return(
       <div className='container--login'>
+        <h4>Login to {location.pathname=== '/shop/cart'?'confirm':'init'}</h4>
       <form className='login' onSubmit={handleSubmit(loginSubmit)}>
           <label htmlFor="email">
               Email:

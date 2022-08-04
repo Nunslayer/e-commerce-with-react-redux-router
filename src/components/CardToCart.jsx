@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux"
 import { getUploadCart, setRemoveItem } from "../store/slices/cart.slice"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faClose, faCaretRight, faCaretLeft} from '@fortawesome/free-solid-svg-icons'
+import { Slider } from './Slider'
 
 const CardToCart=({idItem, product, quantity})=>{
   const restIcon = <FontAwesomeIcon icon={faCaretLeft} />
@@ -14,7 +15,17 @@ const CardToCart=({idItem, product, quantity})=>{
   return(
     <>
       <div className="card--cart">
-        <img src={product.images[0].url}/>
+        {/* <img src={product.images[0].url}/> */}
+        <div className="img--cart--slider">
+        <Slider
+          // autoPlay={true}
+          controlls={true}
+          images={product.images}
+          widthImg='150px'
+          heightImg='150px'
+          idProduct={product.id}
+        />
+        </div>
         <h3>{product.name}</h3>
         <div className="card--cart__details">
           <div className="card--cart__unit--price">
@@ -54,9 +65,9 @@ const CardToCart=({idItem, product, quantity})=>{
           </div>
           <div className="card--cart__total--price">
             <p><small>T. Price: </small><b className='price--card'>{(product.price * quantity).toFixed(2)} $</b></p>
-            {quantity!==counter &&
-              <p><small>Change: </small><b className='price--card modify'>{(product.price * counter).toFixed(2)} $</b></p>
-            }
+            
+            <p><small>Change: </small>{quantity!==counter? <b className='price--card modify'>{(product.price * counter).toFixed(2)} $</b>:'nothing'}</p>
+            
           </div>
         </div>
         <button

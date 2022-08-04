@@ -5,6 +5,12 @@
     justify-content: center;
     height: calc(100vh - 37px);
 }
+.container--login>h4{
+    font-size: 22px;
+    margin: 0;
+    /* background-color: rgba(0, 0, 0, 0.288); */
+    font-weight: lighter;
+}
 .login{
     display: flex;
     flex-flow: column nowrap;

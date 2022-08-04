@@ -10,10 +10,10 @@
 .card--product:hover{
     cursor: pointer;
 }
-.card--product>img{
+/* .card--product>img{
     display: block;
     width:250px;
-}
+} */
 .card--product__description{
     display: flex;
     width: 80%;

@@ -11,15 +11,23 @@ const User = () => {
         <h2>{userEntity.first_name} {userEntity.last_name}</h2>
         <h1>{userEntity.email}</h1>
       </article>
-      <article>
-        {orders && orders.map((order)=> {
-          return(
-            <CardToStore
-              key={order.id}
-              order={order}
-            />
-          )
-        })}
+      <article className='tab--orders'>
+        <div className="tab--header">
+          <p>Name</p>
+          <p>Purchaise date</p>
+          <p>Quantity</p>
+          <p>Price</p>
+        </div>
+        <div className="body--orders">
+          {orders && orders.map((order)=> {
+            return(
+              <CardToStore
+                key={order.id}
+                order={order}
+              />
+            )
+          })}
+        </div>
       </article>
     </section>
   )

@@ -24,7 +24,7 @@ const UserProfile = () => {
   return (
     <div className='user--profile'>
       {userData.id !== null ? <>
-        <Link to='/user'>
+        <Link to={location.pathname.includes('user')?'/shop':'/user'}>
           {userIcon}
         </Link>
         {' | '}
