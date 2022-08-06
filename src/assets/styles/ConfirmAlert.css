@@ -2,7 +2,7 @@
     width: 200px;
     height: 140px;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.44);
+    background-color: rgb(97, 91, 91);
     
     display: flex;
     flex-flow: column nowrap;

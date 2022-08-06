@@ -88,6 +88,7 @@ const User = () => {
               />
             )
           })}
+          {orders.length === 0 && <h1>Nothing to see</h1>}
         </div>
       </article>
     </section>

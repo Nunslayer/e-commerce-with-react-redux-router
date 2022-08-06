@@ -28,7 +28,7 @@ const UserProfile = () => {
           {userIcon}
         </Link>
         {' | '}
-        <Link to={location.pathname.includes('cart')?location.pathname.slice(0,-5):location.pathname + '/cart'}>
+        <Link to={location.pathname.includes('cart')?location.pathname.slice(0,-5):location.pathname.includes('shop')? location.pathname + '/cart':'/shop/cart'}>
           {cartIcon}
         </Link>
         {' | '}

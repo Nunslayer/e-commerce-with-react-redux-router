@@ -7,9 +7,11 @@
 }
 .container--login>h4{
     font-size: 22px;
+    /* color: white; */
     margin: 0;
-    /* background-color: rgba(0, 0, 0, 0.288); */
+    /* background-color: rgb(95, 92, 92); */
     font-weight: lighter;
+    filter: contrast(100);
 }
 .login{
     display: flex;
@@ -20,10 +22,11 @@
     width: min-content;
     padding: 1em;
     border: 1px black solid;
-    background-color: rgba(0, 0, 0, 0.288);
+    background-color: rgb(95, 92, 92);
 }
 .login label{
     font-weight: 700;
+    color: white;
     align-self: flex-start;
 }
 
