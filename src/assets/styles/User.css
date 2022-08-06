@@ -28,7 +28,10 @@ body{
     align-items: center;
     text-transform: capitalize;
 }
-
+.filter--active{
+    background-color: black;
+    color: white;
+}
 .tab--header{
     /* position:absolute; */
     display: flex;
@@ -48,9 +51,9 @@ body{
 }
 
 .tab--header p:nth-child(3){
-    width: 50px;
+    width: 58px;
 }
 
 .tab--header p:nth-child(4){
-    width: 48px;
+    width: 42px;
 }

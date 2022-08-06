@@ -25,9 +25,13 @@ const Shop =()=>{
                     {/* <h1>Categorys</h1> */}
                     <div className="">
                         <button onClick={()=>dispatch(getProducts())}>All</button>
+                        {' | '}
                         <button onClick={()=>dispatch(getProductsByCategory(1))}>Earrings</button>
+                        {' | '}
                         <button onClick={()=>dispatch(getProductsByCategory(2))}>Necklaces</button>
+                        {' | '}
                         <button onClick={()=>dispatch(getProductsByCategory(3))}>Rings</button>
+                        {' | '}
                         <button onClick={()=>dispatch(getProductsByCategory(4))}>Bracelets</button>
                     </div>
                 </article>

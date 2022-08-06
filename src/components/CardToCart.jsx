@@ -1,20 +1,51 @@
 import '../assets/styles/CardToCart.css'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { getUploadCart, setRemoveItem } from "../store/slices/cart.slice"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faClose, faCaretRight, faCaretLeft} from '@fortawesome/free-solid-svg-icons'
-import { Slider } from './Slider'
+import { Slider, SliderUnit } from './Slider'
+import Modal from './Modal'
+import ConfirmAlert from './ConfirmAlert'
 
-const CardToCart=({idItem, product, quantity})=>{
+import {motion} from 'framer-motion'
+
+const variants = {
+  hidden:{
+    opacity:0
+  },
+  visible: ({delay})=>({
+    opacity: 1,
+    transition: {
+      delay,
+      duration: 1
+    }
+  })
+}
+
+const CardToCart=({idItem, product, quantity, index})=>{
   const restIcon = <FontAwesomeIcon icon={faCaretLeft} />
   const plusIcon = <FontAwesomeIcon icon={faCaretRight} />
   const closeIcon = <FontAwesomeIcon icon={faClose} />
   const [counter, setCounter] = useState(Number(quantity))
+  const [showConfirm, setShowConfirm] = useState(false)
+  const handleConfirmClose = () => {
+    setShowConfirm(false)
+  }
   const dispatch= useDispatch()
+  useEffect(()=>{
+    setCounter(Number(quantity))
+  },[quantity])
   return(
-    <>
-      <div className="card--cart">
+      <motion.div 
+        className="card--cart"
+        custom={{delay: (index + 1)*0.1}}
+        initial='hidden'
+        animate='visible'
+        exit='hidden'
+        variants={variants}
+        layoutId={idItem}
+      >
         {/* <img src={product.images[0].url}/> */}
         <div className="img--cart--slider">
         <Slider
@@ -24,7 +55,18 @@ const CardToCart=({idItem, product, quantity})=>{
           widthImg='150px'
           heightImg='150px'
           idProduct={product.id}
-        />
+        >
+          {product.images && product.images.map((image, index)=>{
+                    return(
+                        <SliderUnit 
+                            key={image.url + index}
+                            widthImg='150px'
+                            heightImg='150px'
+                            image={image} 
+                        />
+                    )
+                })}
+        </Slider>
         </div>
         <h3>{product.name}</h3>
         <div className="card--cart__details">
@@ -73,14 +115,25 @@ const CardToCart=({idItem, product, quantity})=>{
         <button
           className='btn--remove'
           onClick={()=>{
-            dispatch(setRemoveItem(idItem))
+            setShowConfirm(true)
+            // dispatch(setRemoveItem(idItem))
           }}
         >
           {closeIcon}
         </button>
-      </div>
-      
-    </>
+        {showConfirm &&
+          <Modal
+            onClose={handleConfirmClose}
+          >
+            <ConfirmAlert
+              onClose={handleConfirmClose}
+              idItem={idItem}
+            >
+              You want delete <b>{product.name}</b>  from your cart?
+            </ConfirmAlert>
+          </Modal>
+        }
+      </motion.div>
   )
 }
 

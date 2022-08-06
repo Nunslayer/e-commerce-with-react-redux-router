@@ -6,8 +6,11 @@ import CardToCart from "../components/CardToCart"
 import LoginForm from '../components/LoginForm'
 import Modal from '../components/Modal'
 import { useEffect, useState } from 'react'
+import ConfirmAlert from '../components/ConfirmAlert'
+import {AnimatePresence} from 'framer-motion'
 const Cart =()=>{
   const [showModal, setShowModal] = useState(false)
+  const [showRemoveAll, setShowRemoveAll] = useState(false)
   const cart = useSelector((state=> state.cart))
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -17,25 +20,34 @@ const Cart =()=>{
   const handleClose=()=>{
     setShowModal(false)
   }
+  const removeHandleClose=()=>{
+    setShowRemoveAll(false)
+  }
   useEffect(()=>{
-    if(cart.length === 0) setShowModal(false)
+    if(cart.length === 0){
+      setShowModal(false)
+      setShowRemoveAll(false)
+    }
   },[cart])
   console.log(cart)
   return (
    
     <section className='cart--section'>
       <div className='body--cart'>
-        {cart && cart.map((carrito)=>{
+        <AnimatePresence>
+        {cart && cart.map((carrito, index)=>{
           const {id, quantity, product}=carrito
           return(
             <CardToCart
               key={id}
               product={product}
               idItem={id}
+              index={index}
               quantity={quantity}
             />
           )
         })}
+        </AnimatePresence>
       </div>
       {showModal &&
         <Modal
@@ -68,11 +80,23 @@ const Cart =()=>{
           disabled={cart.length===0}
           className={cart.length===0?'btn-disabled':null}
           onClick={()=>{
-            dispatch(removeAllItemsCart())
+            setShowRemoveAll(true)
           }}
         >
           Remove All
         </button>
+        {showRemoveAll && 
+          <Modal
+            onClose={removeHandleClose}
+          >
+            <ConfirmAlert
+              onClose={removeHandleClose}
+              
+            >
+              You want delete <b>ALL</b> products from your cart?
+            </ConfirmAlert>
+          </Modal>
+        }
         </div>
         <div className="global--price">
           <p>Total: {getTotalPrice().toFixed(2)} $</p>

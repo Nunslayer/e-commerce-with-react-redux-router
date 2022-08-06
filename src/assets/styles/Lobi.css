@@ -42,6 +42,9 @@
     left: 0;
     right: 0;
     z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media screen and (min-width: 600px) {
     .mark--container{

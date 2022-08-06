@@ -2,9 +2,26 @@
     background-color: rgb(255, 255, 255, 0);
     /* backdrop-filter: blur(1px) ; */
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     bottom: 0;
     top: 0;
     left: 0;
     right: 0;
     z-index: 50;
 }
+.modal--content{
+    justify-content: center;
+    align-items: stretch;
+}
+/* 
+.modal--content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+
+} */

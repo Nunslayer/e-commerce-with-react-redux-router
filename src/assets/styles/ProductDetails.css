@@ -2,14 +2,16 @@
     display: flex;
     flex-flow: column nowrap;
     height: 80vh;
-    padding-top: 1rem;
+    padding: 0;
+    justify-content: center;
     margin: 0 auto;
 }
-.card--product__details>img{
-    display: block;
+.card--product__details>article:first-child{
+    /* display: block;
     width: 80%;
-    height: 40vh;
+    height: 40vh; */
     align-self: center;
+    justify-self: center;
 }
 
 .product__details--description{
@@ -19,6 +21,10 @@
     justify-content: space-evenly;
     padding: 0 2rem;
     gap: 0.5rem;
+}
+.product__details--description>p{
+    max-height: 65px;
+    overflow: scroll;
 }
 .product__details--description>*{
     margin: 0;

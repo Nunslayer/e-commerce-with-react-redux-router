@@ -1,0 +1,29 @@
+.container--alert--confirm{
+    width: 200px;
+    height: 140px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.44);
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    text-align: center;
+    /* align-self: center;
+    justify-self: center; */
+}
+.container--alert--confirm div{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.container--alert--confirm div button{
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    background-color: black;
+    color: white;
+}
+.container--alert--confirm p{
+    /* margin: 0; */
+    filter: invert(1);
+}

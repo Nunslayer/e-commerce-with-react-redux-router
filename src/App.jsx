@@ -79,8 +79,11 @@ function App() {
             <Route path='/shop' element={<Shop/>}>
              <Route path='cart' element={<Cart/>}/> 
             </Route>
+            <Route path='/shop/:id' element={<ProductDetails/>}>
+             <Route path='cart' element={<Cart/>}/> 
+            </Route>
             <Route path='/user' element={<User/>}/>            
-            <Route path='/shop/:id' element={<ProductDetails/>}/>
+            {/* <Route path='/shop/:id' element={<ProductDetails/>}/> */}
           </Route>
         </Routes>
       </HashRouter>

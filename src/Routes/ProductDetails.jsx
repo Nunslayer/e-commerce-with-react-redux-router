@@ -1,12 +1,13 @@
 import '../assets/styles/ProductDetails.css'
-import {useParams, useNavigate} from 'react-router-dom'
+import {useParams, useNavigate, Outlet} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect, useState } from 'react'
 import { getUploadCart } from '../store/slices/cart.slice'
 import Products from '../components/Products'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
-import { Slider } from '../components/Slider'
+import { Slider, SliderUnit } from '../components/Slider'
+import Autocomplete from '../components/Autocomplete'
 
 const ProductDetails = ()=>{
     const [counter, setCounter] = useState(1)
@@ -32,76 +33,90 @@ const ProductDetails = ()=>{
         }else{
             setCounter(1)
         }
-    },[id])
+    },[id, cart])
     return (
         <>
-        {
-            product.id && 
-                <div className="card--product__details">
-                    {/* <img src={product.images[0].url}  /> */}
-                    <Slider 
-                        controlls={true}
-                        images={product.images}
-                        widthImg='80%'
-                        heightImg='40vh'
-                        idProduct={product.id}
-                    />
-                    <div className="product__details--description">
-                        <h2>{product.name}</h2>
-                        <p>{product.description}</p>
-                        <div className="quantity-to-cart">
-                            <button
-                                onClick={()=>{
-                                    setCounter(counter+1)
-                                }}
-                            >
-                                {moreIcon}
-                            </button>
-                            <span> 
-                                {counter} 
-                            </span>
-                            <button
-                                disabled={counter===1}
-                                onClick={()=>{
-                                    setCounter(counter-1)
-                                }}
-                            >
-                                {lessIcon}
-                            </button>
-                        </div>
-                        <button onClick={()=>{
-                                dispatch(getUploadCart(product.id,counter))
-                                // navigate('/cart')
-                            }}
-                        >
-                            Add to cart
-                        </button>
+        <section className="body--shop">
+                <article className='header--shop'>
+                    <Autocomplete/>
+                    {/* <h1>Categorys</h1> */}
+                    <div className="">
+                        <button onClick={()=>dispatch(getProducts())}>All</button>
+                        {' | '}
+                        <button onClick={()=>dispatch(getProductsByCategory(1))}>Earrings</button>
+                        {' | '}
+                        <button onClick={()=>dispatch(getProductsByCategory(2))}>Necklaces</button>
+                        {' | '}
+                        <button onClick={()=>dispatch(getProductsByCategory(3))}>Rings</button>
+                        {' | '}
+                        <button onClick={()=>dispatch(getProductsByCategory(4))}>Bracelets</button>
                     </div>
-                </div>
-        }
-        {category && <Products products={category}/>}
-        {/* {category && category.map((productCategory)=>{
-            if(productCategory.id ==id){
-                return
-            }else{
-                const {id, name, description,images}= productCategory
-                return(
-                    <div key={id} className="card--product__category">
-                        <h3>{name}</h3>
-                        <p>{description}</p>
-                        <img src={images[0].url} style={{width: '300px', height:'300px',}} />
-                
-                        <button onClick={()=>{
-                            window.scrollTo(0,0)
-                            navigate(`/shop/${id}`)
-                        }}
-                        >
-                            👀
-                        </button>
-                    </div>
-                )
-            }
-        })} */}
+                </article>
+                <article className="main--shop">
+                    <article className={location.pathname==='/shop'?'isOnlyShop prueba':'isCartActive prueba'}>
+                    {
+                        product.id && 
+                            <div className="card--product__details">
+                                {/* <img src={product.images[0].url}  /> */}
+                                <Slider 
+                                    controlls={true}
+                                    images={product.images}
+                                    widthImg='300px'
+                                    heightImg='300px'
+                                    idProduct={product.id}
+                                >
+                                    {product.images && product.images.map((image, index)=>{
+                                        return(
+                                            <SliderUnit 
+                                                key={index}
+                                                widthImg='300px'
+                                                heightImg='300px' 
+                                                image={image}
+                                                idProduct={product.id}
+                                            />
+                                        )
+                                    })}
+                                </Slider>
+                                <div className="product__details--description">
+                                    <h2>{product.name}</h2>
+                                    <p>{product.description}</p>
+                                    <div className="quantity-to-cart">
+                                        <button
+                                            onClick={()=>{
+                                                setCounter(counter+1)
+                                            }}
+                                        >
+                                            {moreIcon}
+                                        </button>
+                                        <span> 
+                                            {counter} 
+                                        </span>
+                                        <button
+                                            disabled={counter===1}
+                                            onClick={()=>{
+                                                setCounter(counter-1)
+                                            }}
+                                        >
+                                            {lessIcon}
+                                        </button>
+                                    </div>
+                                    <button onClick={()=>{
+                                            dispatch(getUploadCart(product.id,counter))
+                                            // navigate('/cart')
+                                        }}
+                                    >
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                    }
+                    {category && <Products products={category}/>}
+                    </article>
+                    <article className='prueba--cart'>
+                        <Outlet/>
+                    </article>
+            </article>
+            </section>
         </>
     )
 }

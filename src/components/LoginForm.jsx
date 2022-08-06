@@ -38,7 +38,7 @@ const LoginForm =({children, tittle})=>{
       email: data.email,
       password: data.password
     }
-    if(location.pathname=== '/shop/cart'){
+    if(location.pathname.includes('cart')){
       console.log(login)
       dispatch(setBuyCartItems(login))
     }
