@@ -63,6 +63,7 @@ const CardToCart=({idItem, product, quantity, index})=>{
                             widthImg='150px'
                             heightImg='150px'
                             image={image} 
+                            idProduct={product.id}
                         />
                     )
                 })}

@@ -67,7 +67,7 @@ export const getOrdersOfUser=()=>async(dispatch, getState)=>{
     const getConfig = () => ({
         headers: { Authorization: `Bearer ${userLog.token}` }
     });
-    const res = await axios.post('https://ecommerce-exercise-backend.herokuapp.com/orders/',getConfig())
+    const res = await axios.get('https://ecommerce-exercise-backend.herokuapp.com/orders/',getConfig())
     console.log(res)
     if(res.status===200){
         dispatch(getUploadOrders(res.data))

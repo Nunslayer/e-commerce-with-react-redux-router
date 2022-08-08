@@ -2,13 +2,16 @@ import '../assets/styles/User.css'
 import { useDispatch, useSelector } from "react-redux"
 import CardToStore from "../components/CardToStore"
 import { useEffect, useState } from 'react'
-import { reverseSort, sortByDate, sortByName, sortByPrice, sortByQuantity } from '../store/slices/orders.slice'
+import { getOrdersOfUser, reverseSort, sortByDate, sortByName, sortByPrice, sortByQuantity } from '../store/slices/orders.slice'
 
 const User = () => {
   const userEntity = useSelector((state) => state.userEntity)
   const orders = useSelector((state)=> state.orders)
   const dispatch = useDispatch()
   const [sortBy, setSortBy] = useState(null)
+  useEffect(()=>{
+    dispatch(getOrdersOfUser())
+  },[])
   // useEffect(()=>{
   //   let arrayOrders = [...orders]
   //   const da = new Date(arrayOrders[0].purchase_date)

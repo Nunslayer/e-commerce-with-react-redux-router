@@ -36,6 +36,12 @@
     outline: none;
 }
 
+.login p{
+    margin: 0;
+    justify-self: start;
+    align-self: flex-start;
+}
+
 .login button{
     align-self: center;
     background-color: black;

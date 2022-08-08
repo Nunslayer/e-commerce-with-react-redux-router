@@ -39,7 +39,6 @@ const ProductDetails = ()=>{
         <section className="body--shop">
                 <article className='header--shop'>
                     <Autocomplete/>
-                    {/* <h1>Categorys</h1> */}
                     <div className="">
                         <button onClick={()=>dispatch(getProducts())}>All</button>
                         {' | '}

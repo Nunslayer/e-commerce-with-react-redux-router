@@ -107,7 +107,7 @@ export const setBuyCartItems=(loginConfirm)=>(dispatch, getState)=>{
         .then(res=> {
             console.log(res)
             dispatch(cleanCart())
-            dispatch(getUploadOrders(res.data))
+            // dispatch(getUploadOrders(res.data))
         })
         .catch(error=> console.log(error))
         .finally(dispatch(setLoading(false)))

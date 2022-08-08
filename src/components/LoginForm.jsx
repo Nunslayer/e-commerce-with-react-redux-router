@@ -46,11 +46,10 @@ const LoginForm =({children, tittle})=>{
       dispatch(loginUser(login))
     }
   }
-  const state = location.state
-  console.log(state)
+
   return(
       <div className='container--login'>
-        <h4>Login to {location.pathname=== '/shop/cart'?'confirm':'init'}</h4>
+        <h4>Login to {location.pathname.includes('cart')?'confirm':'init'}</h4>
       <form className='login' onSubmit={handleSubmit(loginSubmit)}>
           <label htmlFor="email">
               Email:
@@ -61,6 +60,7 @@ const LoginForm =({children, tittle})=>{
               placeholder='Type your email here'
               {...register('email')}
           />
+          <p>Test: <small>prueba@example.com</small></p>
           <label htmlFor="password">
               Password:
           </label>
@@ -69,17 +69,12 @@ const LoginForm =({children, tittle})=>{
               placeholder='Type your password here'
               {...register('password')}
           />
+          <p>Test: <small>password</small></p>
           <button>
               Login
           </button>
       </form>
       {children}
-      {/* {user.isLogin===true && <p className='register--state successful'>
-          Successful Login {checkIcon}
-      </p>}
-      {user.isLogin===false && <p className='register--state errors-msg'>
-          Invalid dates {errorIcon}
-      </p>} */}
       </div>
   )
 }

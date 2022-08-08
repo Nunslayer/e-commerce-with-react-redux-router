@@ -42,6 +42,9 @@ body{
 .tab--header p{
     margin: 0;
 }
+.tab--header p:hover{
+    cursor: pointer;
+}
 .tab--header p:nth-child(1){
     width: 100px;
 }
