@@ -8,10 +8,12 @@
     justify-content: space-between;
     text-align: center;
 }
+
 .container--alert--confirm div{
     display: flex;
     flex-flow: row nowrap;
 }
+
 .container--alert--confirm div button{
     width: 50%;
     margin: 0;
@@ -20,6 +22,7 @@
     background-color: black;
     color: white;
 }
+
 .container--alert--confirm p{
     filter: invert(1);
 }

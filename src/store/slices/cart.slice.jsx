@@ -98,4 +98,3 @@ export const setBuyCartItems = (loginConfirm) => (dispatch, getState) => {
     .catch(error => console.log(error))
     .finally(dispatch(setLoading(false)))
 }
-

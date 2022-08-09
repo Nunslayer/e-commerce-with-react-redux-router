@@ -1,9 +1,8 @@
 .body--shop{
-    
     display: grid;
     grid-template-rows: min-content 1fr;
-    
 }
+
 .main--shop{
     position: relative;
     display: grid;
@@ -15,24 +14,16 @@
     justify-content: right;
     align-items: start;
 }
+
 .prueba--cart{
     position: sticky;
     grid-area: s-cart;
-    /* height: calc(100vh -95px);
-    max-height: calc(100vh -95px); */
 }
+
 .prueba{
     grid-area: s-products;
 }
 
-/* .isCartActive{
-    display: none;
-    
-}
-.isOnlyShop{
-    display: flex;
-    justify-content: center;
-} */
 @media screen and ( min-width: 600px) {
     .main--shop{
         grid-template-areas: 

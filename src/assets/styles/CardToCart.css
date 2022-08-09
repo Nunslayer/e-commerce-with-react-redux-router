@@ -2,7 +2,6 @@
     position: relative;
     display: grid;
     grid-template-areas: 
-    /* "c-tittle c-tittle c-tittle c-tittle" */
     "c-img c-img c-btn c-btn"
     "c-img c-img c-btn c-btn"
     ;
@@ -10,21 +9,15 @@
     height: 150px;
     border-top: 1px rgb(82, 79, 79) solid;
 }
+
 .card--cart:last-child{
     border-bottom: 1px rgb(82, 79, 79) solid;
 }
+
 .card--cart .img--cart--slider{
-    /* display: block; */
     grid-area: c-img;
-    /* width: 150px;
-    height: 150px; */
 }
-/* .card--cart img{
-    display: block;
-    grid-area: c-img;
-    width: 150px;
-    height: 150px;
-} */
+
 .card--cart h3{
     position: absolute;
     font-size: 16px;
@@ -36,10 +29,8 @@
     margin: 0;
     background-color: rgba(0, 0, 0, 0.4);
     overflow: hidden;
-    /* grid-area: c-tittle; */
-    
-    /* border-top: 1px rgb(82, 79, 79) solid; */
 }
+
 .card--cart__details{
     grid-area: c-btn;
     width: 150px;
@@ -48,6 +39,7 @@
     flex-flow: column nowrap;
     justify-content: space-around;
 }
+
 .btn--remove{
     color: gray;
     background: none;
@@ -60,6 +52,7 @@
     line-height: 1;
     z-index: 50;
 }
+
 .card--cart__quantity{
     display: flex;
     flex-flow: column;
@@ -76,6 +69,7 @@
     color: white;
     align-self: center;
 }
+
 .card--cart__quantity div{
     display: flex;
     align-self: center;
@@ -86,12 +80,14 @@
     border: 1px black solid;
     line-height: 1;
 }
+
 .card--cart__quantity>div>button{
     background-color: black;
     color: white;
     font-size: 20px;
     line-height: 1;
 }
+
 .card--cart__unit--price p{
     margin: 0;
     font-size: 16px;

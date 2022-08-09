@@ -43,7 +43,6 @@ const Shop = () => {
           </article>
         </article>
       </section>
-
     </>
   )
 }

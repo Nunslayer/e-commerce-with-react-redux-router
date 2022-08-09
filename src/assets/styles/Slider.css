@@ -5,14 +5,12 @@
 
 .container--slider{
     display: flex;
-    /* overflow: hidden; */
     flex-wrap: nowrap;
 }
 
 .slider--single{
     min-width: 100%;
     min-height: 100%;
-    /* transition: .3s ease all; */
     z-index: 10;
     position: relative;
 }
@@ -43,12 +41,3 @@
     color: gray;
     font-size: 30px;
 }
-
-/* .prev-btn{
-    justify-self: flex-start;
-    align-self: flex-start;
-}
-.next-btn{
-    justify-self: flex-end;
-    align-self: flex-end;
-} */

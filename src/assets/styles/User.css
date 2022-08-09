@@ -1,6 +1,7 @@
 body{
     box-sizing: border-box;
 }
+
 .user--page{
     display: flex;
     flex-flow: row wrap;
@@ -12,15 +13,18 @@ body{
     height: calc(100vh - 36px);
     overflow-y: scroll;
 }
+
 .tab--orders{
     position: relative;
     height: calc(100vh - 36px);
     overflow-y: none;
 }
+
 .body--orders{
     height: calc(100vh - 76px);
     overflow-y: scroll;
 }
+
 .user--page--data{
     display: flex;
     flex-flow: column wrap;
@@ -28,22 +32,27 @@ body{
     align-items: center;
     text-transform: capitalize;
 }
+
 .filter--active{
     background-color: black;
     color: white;
 }
+
 .tab--header{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     font-weight: 700;
 }
+
 .tab--header p{
     margin: 0;
 }
+
 .tab--header p:hover{
     cursor: pointer;
 }
+
 .tab--header p:nth-child(1){
     width: 100px;
 }

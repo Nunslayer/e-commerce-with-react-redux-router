@@ -42,7 +42,6 @@ const Login = () => {
         </p>}
       </LoginForm>
     </section>
-
   )
 }
 

@@ -1,6 +1,6 @@
 import '../assets/styles/RegisterForm.css'
 import {useForm} from 'react-hook-form'
-import {useSelector, useDispatch} from 'react-redux'
+import { useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
@@ -15,7 +15,12 @@ const RegisterForm = () => {
     getFieldState, 
     register,
     getValues, 
-    formState: {errors, isDirty, isValid, dirtyFields, }
+    formState: {
+      errors, 
+      isDirty, 
+      isValid, 
+      dirtyFields
+    }
   } = useForm({
     mode:'onChange',
     defaultValues:{

@@ -6,39 +6,9 @@
     align-items: flex-start;
     row-gap: 1rem;
     overflow-y: scroll;
-    /* display: grid;
-    grid-template-columns:1fr ;
-    grid-template-rows: auto;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem 0; */
 }
 
 ::-webkit-scrollbar{
     width: 5px;
     color:red;
 }
-/* .isOnlyShop{
-    display: block;
-}
-@media screen and (min-width: 600px) {
-    .container--products{
-        grid-template-columns:min-content min-content ;
-        grid-template-columns:1fr ;
-    }
-}
-
-@media screen and (min-width: 900px) {
-    .container--products{
-        grid-template-columns:min-content min-content min-content ;
-        grid-template-columns:1fr 1fr ;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .container--products{
-        grid-template-columns:min-content min-content min-content min-content;
-        grid-template-columns:1fr 1fr 1fr;
-    }
-} */

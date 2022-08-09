@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import productsSlice from './slices/products.slice'
 import userLogSlice from './slices/userLog.slice'
 import tokenSlice from './slices/token.slice'
@@ -7,13 +7,13 @@ import cartSlice from './slices/cart.slice'
 import loadingSlice from './slices/loading.slice'
 import ordersSlice from './slices/orders.slice'
 export default configureStore({
-    reducer:{
-        userLog: userLogSlice,
-        products: productsSlice,
-        token: tokenSlice,
-        userEntity: userEntitySlice,
-        cart: cartSlice,
-        loading: loadingSlice,
-        orders: ordersSlice
-    }
+	reducer: {
+		userLog: userLogSlice,
+		products: productsSlice,
+		token: tokenSlice,
+		userEntity: userEntitySlice,
+		cart: cartSlice,
+		loading: loadingSlice,
+		orders: ordersSlice
+	}
 })

@@ -6,12 +6,13 @@
     height: calc(100vh - 37px);
     
 }
+
 .container--register>h4{
     font-size: 22px;
     margin: 0;
-    /* background-color: rgba(0, 0, 0, 0.288); */
     font-weight: lighter;
 }
+
 .register{
     width: min-content;
     background-color: rgba(0, 0, 0, 0.288);
@@ -50,11 +51,10 @@
 .checkIcon{
     color: green;
 }
+
 .warningIcon{
     background-color: black;
     color: red;
-    /* font-size: 14px; */
-    /* border: 1px black solid; */
     border-radius: 50%;
 }
 
@@ -65,6 +65,7 @@
     height: 2rem;
     padding: 0 1rem;
 }
+
 .btn-disabled{
     opacity: 0.5;
 }
@@ -75,6 +76,7 @@
     padding: 0 0.5em;
     margin: 0.4em;
 }
+
 .successful{
     background-color: rgb(64, 247, 64);
     color: green;
