@@ -26,8 +26,8 @@ const LoginForm = ({ children }) => {
     <div className='container--login'>
       <h4>Login to
         {location.pathname.includes('cart') ?
-          'confirm' :
-          'init'}
+          ' confirm' :
+          ' init'}
       </h4>
       <form className='login' onSubmit={handleSubmit(loginSubmit)}>
         <label htmlFor="email">
