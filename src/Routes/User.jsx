@@ -12,14 +12,6 @@ const User = () => {
   useEffect(()=>{
     dispatch(getOrdersOfUser())
   },[])
-  // useEffect(()=>{
-  //   let arrayOrders = [...orders]
-  //   const da = new Date(arrayOrders[0].purchase_date)
-  //   console.log(da)
-  //   arrayOrders = arrayOrders.sort((a, b)=> a.quantity - b.quantity)
-  //   orders.sort((a, b)=> a.quantity - b.quantity)
-  //   setSortArray(arrayOrders)
-  // },[])
   return (
     <section className="user--page">
       <article className='user--page--data'>

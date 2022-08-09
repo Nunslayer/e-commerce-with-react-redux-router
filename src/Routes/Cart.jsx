@@ -1,52 +1,48 @@
 import '../assets/styles/Cart.css'
 import { useSelector, useDispatch } from "react-redux"
-import { removeAllItemsCart, setBuyCartItems } from "../store/slices/cart.slice"
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import CardToCart from "../components/CardToCart"
 import LoginForm from '../components/LoginForm'
 import Modal from '../components/Modal'
 import { useEffect, useState } from 'react'
 import ConfirmAlert from '../components/ConfirmAlert'
-import {AnimatePresence} from 'framer-motion'
-const Cart =()=>{
+import { AnimatePresence } from 'framer-motion'
+const Cart = () => {
   const [showModal, setShowModal] = useState(false)
   const [showRemoveAll, setShowRemoveAll] = useState(false)
-  const cart = useSelector((state=> state.cart))
-  const dispatch = useDispatch()
+  const cart = useSelector((state => state.cart))
   const navigate = useNavigate()
-  const getTotalPrice=()=>{
-    return cart.reduce((acc,{quantity,product:{price}}) => acc + quantity * price, 0)
+  const getTotalPrice = () => {
+    return cart.reduce((acc, { quantity, product: { price } }) => acc + quantity * price, 0)
   }
-  const handleClose=()=>{
+  const handleClose = () => {
     setShowModal(false)
   }
-  const removeHandleClose=()=>{
+  const removeHandleClose = () => {
     setShowRemoveAll(false)
   }
-  useEffect(()=>{
-    if(cart.length === 0){
+  useEffect(() => {
+    if (cart.length === 0) {
       setShowModal(false)
       setShowRemoveAll(false)
     }
-  },[cart])
-  console.log(cart)
+  }, [cart])
   return (
-   
     <section className='cart--section'>
       <div className='body--cart'>
         <AnimatePresence>
-        {cart && cart.map((carrito, index)=>{
-          const {id, quantity, product}=carrito
-          return(
-            <CardToCart
-              key={id}
-              product={product}
-              idItem={id}
-              index={index}
-              quantity={quantity}
-            />
-          )
-        })}
+          {cart && cart.map((carrito, index) => {
+            const { id, quantity, product } = carrito
+            return (
+              <CardToCart
+                key={id}
+                product={product}
+                idItem={id}
+                index={index}
+                quantity={quantity}
+              />
+            )
+          })}
         </AnimatePresence>
       </div>
       {showModal &&
@@ -54,57 +50,54 @@ const Cart =()=>{
           onClose={handleClose}
         >
           <LoginForm>
-            {}
+            { }
           </LoginForm>
         </Modal>
       }
-      {cart.length===0 && 
+      {cart.length === 0 &&
         <article className='empty--cart'>
           <h1>You Dont have products in your shopping cart</h1>
-          <button onClick={()=>navigate('/shop')}>Explore more</button>
+          <button onClick={() => navigate('/shop')}>Explore more</button>
         </article>
       }
       <div className="footer--cart">
         <div className="footer--cart__btn">
-        <button
-          disabled={cart.length===0}
-          className={cart.length===0?'btn-disabled':null}
-          onClick={()=>{
-            setShowModal(true)
-            // dispatch(setBuyCartItems())
-          }}
-        >
-          Buy
-        </button>
-        <button
-          disabled={cart.length===0}
-          className={cart.length===0?'btn-disabled':null}
-          onClick={()=>{
-            setShowRemoveAll(true)
-          }}
-        >
-          Remove All
-        </button>
-        {showRemoveAll && 
-          <Modal
-            onClose={removeHandleClose}
+          <button
+            disabled={cart.length === 0}
+            className={cart.length === 0 ? 'btn-disabled' : null}
+            onClick={() => {
+              setShowModal(true)
+            }}
           >
-            <ConfirmAlert
+            Buy
+          </button>
+          <button
+            disabled={cart.length === 0}
+            className={cart.length === 0 ? 'btn-disabled' : null}
+            onClick={() => {
+              setShowRemoveAll(true)
+            }}
+          >
+            Remove All
+          </button>
+          {showRemoveAll &&
+            <Modal
               onClose={removeHandleClose}
-              
             >
-              You want delete <b>ALL</b> products from your cart?
-            </ConfirmAlert>
-          </Modal>
-        }
+              <ConfirmAlert
+                onClose={removeHandleClose}
+
+              >
+                You want delete <b>ALL</b> products from your cart?
+              </ConfirmAlert>
+            </Modal>
+          }
         </div>
         <div className="global--price">
           <p>Total: {getTotalPrice().toFixed(2)} $</p>
         </div>
       </div>
-      
     </section>
-    
   )
 }
 

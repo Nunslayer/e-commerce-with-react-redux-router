@@ -3,13 +3,10 @@
     height: 140px;
     margin: auto;
     background-color: rgb(97, 91, 91);
-    
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     text-align: center;
-    /* align-self: center;
-    justify-self: center; */
 }
 .container--alert--confirm div{
     display: flex;
@@ -24,6 +21,5 @@
     color: white;
 }
 .container--alert--confirm p{
-    /* margin: 0; */
     filter: invert(1);
 }

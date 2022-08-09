@@ -114,3 +114,4 @@ const SliderUnit = ({widthImg, heightImg, idProduct, image}) =>{
 
 
 export {Slider, SliderUnit}
+

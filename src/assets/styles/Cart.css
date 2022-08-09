@@ -1,27 +1,20 @@
 .cart--section{
-    
     position: relative;
-    
     width: 300px;
     height: calc(100vh - 98px);
     margin: auto;
 }
 .body--cart{
-    /* padding-bottom: 50px; */
-    /* height: calc(100vh - 143px); */
     height: calc(100% - 45px);
     overflow-y: scroll;
     padding-bottom: 0;
 }
 
 .footer--cart{
-    /* position: absolute; */
     display: flex;
     flex-flow: column nowrap;
     height: 45px;
     width: 300px;
-    /* bottom: 0; */
-    /* z-index: 10; */
 }
 .footer--cart__btn{
     width: 100%;

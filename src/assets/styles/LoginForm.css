@@ -3,13 +3,10 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    /* height: calc(100vh - 37px); */
 }
 .container--login>h4{
     font-size: 22px;
-    /* color: white; */
     margin: 0;
-    /* background-color: rgb(95, 92, 92); */
     font-weight: lighter;
     filter: contrast(100);
 }
